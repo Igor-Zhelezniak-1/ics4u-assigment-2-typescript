@@ -1,35 +1,31 @@
 /**
- * The program makes rock paper scissors
+ * The programm
  *
  *
- * By: Peter Gemmell
+ * By: Igor Zhelezniak
  * Version: 1.0
- * Since:   2022-09-17
+ * Since:   2022-10-06
  */
 import promptSync from 'prompt-sync'
 
 const prompt = promptSync()
 
-/**
- * @param {string} sentence sentence read
- * @returns {number} count count of the vowels in sentence
- */
-function vowelCount(sentence: string): number {
+function vowelCount(string: string): number {
   const vowelList = 'aeiouyAEIOUY'
   let count = 0
-  const length = sentence.length
+  const length = string.length
 
   for (let loop = 0; loop < length; loop++) {
-    if (vowelList.includes(sentence[loop])) {
+    if (vowelList.includes(string[loop])) {
       count += 1
     }
   }
   return count
 }
-const sentence = prompt('Enter a Sentence: ')
+const string = prompt('Enter a string: ')
 try {
-  const count = vowelCount(sentence)
-  console.log(`Number of vowels in the given sentence is ${count}`)
+  const count = vowelCount(string)
+  console.log(`The max run of ${string} is ${count}`)
 } catch (e) {
   const result = (e as Error).message
   console.log('ERROR:' + result)
